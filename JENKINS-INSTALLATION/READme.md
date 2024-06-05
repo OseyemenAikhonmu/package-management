@@ -17,24 +17,26 @@
 ### Install other softwares - git, unzip and wget
 
 ``` sh
-sudo hostname ci
+hostnamectl set-hostname Jen-CI
 sudo yum -y install unzip wget tree git
-sudo wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
-sudo yum install jdk-8u131-linux-x64.rpm -y
+sudo yum upgrade
+sudo wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/11.0.23+9/openlogic-openjdk-11.0.23+9-linux-x64-el.rpm
+sudo yum install openlogic-openjdk-11.0.23+9-linux-x64-el.rpm
+rm -rf openlogic-openjdk-11.0.23+9-linux-x64-el.rpm
 ```
 ###  Add Jenkins Repository and key
 ```sh
-sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
-cd /etc/yum.repos.d/
-sudo curl -O https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo wget -O /etc/yum.repos.d/jenkins.repo     https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 ```
 
 ## Install Jenkins
 ```sh
-sudo yum -y install jenkins  --nobest
+sudo yum install jenkins
 ```
 # start Jenkins  service and verify Jenkins is running
 ```sh
+sudo systemctl daemon-reload
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
 sudo systemctl status jenkins
