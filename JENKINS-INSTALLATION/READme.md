@@ -17,7 +17,7 @@
 ### Install other softwares - git, unzip and wget
 
 ``` sh
-hostnamectl set-hostname Jen-CI
+sudo hostnamectl set-hostname Jen-CI
 sudo yum -y install unzip wget tree git
 sudo yum -y upgrade
 sudo wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/11.0.23+9/openlogic-openjdk-11.0.23+9-linux-x64-el.rpm
