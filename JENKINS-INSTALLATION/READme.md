@@ -19,9 +19,9 @@
 ``` sh
 hostnamectl set-hostname Jen-CI
 sudo yum -y install unzip wget tree git
-sudo yum upgrade
+sudo yum -y upgrade
 sudo wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/11.0.23+9/openlogic-openjdk-11.0.23+9-linux-x64-el.rpm
-sudo yum install openlogic-openjdk-11.0.23+9-linux-x64-el.rpm
+sudo yum -y install openlogic-openjdk-11.0.23+9-linux-x64-el.rpm
 rm -rf openlogic-openjdk-11.0.23+9-linux-x64-el.rpm
 ```
 ###  Add Jenkins Repository and key
